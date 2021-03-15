@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <van-tabbar v-model="active" route active-color="#845d32">
+    <van-tabbar v-model="active" route active-color="#845d32" class="tabbar">
       <van-tabbar-item
         v-for="(item, i) in navs"
         :key="i"
@@ -29,6 +29,10 @@ export default {
   },
 };
 </script>
-
-<style lang="less" scoped>
+<style lang="less">
+.footer {
+  .tabbar {
+    display: flex;
+  }
+}
 </style>

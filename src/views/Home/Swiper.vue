@@ -1,7 +1,7 @@
 <template>
   <div class="swiper">
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item v-for="(item, i) in banner" :key="i">
+      <van-swipe-item v-for="item in banner" :key="item.iid">
         <img :src="item.item.pic_url" alt="" class="img" />
       </van-swipe-item>
     </van-swipe>

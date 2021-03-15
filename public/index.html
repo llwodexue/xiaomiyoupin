@@ -6,38 +6,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <title>小米有品</title>
-    <style>
-      html {
-        font-size: 100px;
-      }
-      html,
-      body {
-        height: 100%;
-        background: #f4f4f4;
-      }
-      #app {
-        max-width: 750px;
-        min-height: 100%;
-      }
-    </style>
-    <script>
-      ;(function() {
-        function computed() {
-          let HTML = document.documentElement,
-            winW = HTML.clientWidth,
-            designW = 750
-          if (winW >= designW) {
-            HTML.style.fontSize = '100px'
-            return
-          }
-          HTML.style.fontSize = (winW / designW) * 100 + 'px'
-        }
-        computed()
-        window.addEventListener('resize', computed)
-      })()
-    </script>
-  </head>
   <body>
     <div id="app"></div>
+    <script>
+    // iPhone6/7/8 50px=1rem
+    ;(function() {
+      let app = document.getElementById("app")
+      function computed() {
+        let HTML = document.documentElement,
+          winW = HTML.clientWidth,
+          designW = 750
+
+        if (winW >= designW) {
+          HTML.style.fontSize = '100px'
+          return
+        }
+        HTML.style.fontSize = (winW / designW) * 100 + 'px'
+      }
+      computed()
+      window.addEventListener('resize', computed)
+    })()
+    </script>
+  </head>
   </body>
 </html>

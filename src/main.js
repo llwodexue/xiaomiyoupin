@@ -2,19 +2,22 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import Vant from "vant";
-
+import "@/vantui";
+import axios from "@/api/api";
+import "./mock";
 import "vant/lib/index.css";
-import "./assets/reset.min.css";
+import "./assets/reset.css";
 
 Vue.config.productionTip = false;
-Vue.use(Vant);
-// Tabbar
-// Search
-// Swipe
+Vue.prototype.$axios = axios;
+
+Vue.filter("filterMoney", val => {
+  return `￥${val / 100}`;
+});
 
 new Vue({
   router,
   store,
-  render: (h) => h(App),
+  render: h => h(App)
 }).$mount("#app");
+

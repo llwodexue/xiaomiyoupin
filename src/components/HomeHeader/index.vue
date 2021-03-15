@@ -1,51 +1,41 @@
 <template>
-  <div class="header">
+  <div class="homeHeader">
     <img :src="img" class="logo" />
-    <van-search
-      v-model="value"
-      placeholder="搜一搜"
-      class="search"
-      background="#F0F0F0"
-    />
+    <input-search :disabled="true" :showAction="false"></input-search>
   </div>
 </template>
 
 <script>
+import InputSearch from "@/components/InputSearch";
 export default {
-  name: "Header",
+  name: "HomeHeader",
+  components: {
+    InputSearch,
+  },
   data() {
     return {
       img:
         "https://img.youpin.mi-img.com/static/weex_images/v1/m/navi_title_v6.png",
-      value: "",
     };
   },
-  created() {},
 };
 </script>
 
-<style lang="less" scoped>
-.header {
-  height: 56px;
+<style lang="less">
+.homeHeader {
+  height: 1.12rem;
   background-color: #845d32;
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   .logo {
-    width: 36px;
-    height: 28px;
-    margin-left: 12px;
+    width: 0.72rem;
+    height: 0.56rem;
+    margin-left: 0.24rem;
   }
-  .van-search__content {
-    background-color: transparent;
-    padding-left: 0;
-  }
-  .search {
-    height: 32px;
-    border-radius: 16px;
-    width: 100%;
-    margin: 0 15px 0 10px;
+  input::-webkit-input-placeholder {
+    color: #333;
   }
 }
 </style>

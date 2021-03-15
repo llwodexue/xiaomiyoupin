@@ -1,9 +1,6 @@
 import Footer from "@/views/Footer";
 import HomeHeader from "@/components/HomeHeader";
 import Home from "@/views/Home";
-import Category from "@/views/Category";
-import Cart from "@/views/Cart";
-import Mime from "@/views/Mime";
 
 export default [
   {
@@ -21,47 +18,70 @@ export default [
     meta: {
       title: "首页",
       isTabBar: true,
-      icon: "wap-home-o"
+      // icon: "wap-home-o",
+      icon: "wap-home"
+    }
+  },
+  {
+    path: "/popup",
+    name: "popup",
+    component: () => import("@/views/Popup"),
+    meta: {
+      title: "弹出层",
+      isTabBar: false
     }
   },
   {
     path: "/category",
     name: "category",
     components: {
-      default: Category,
-      header: HomeHeader,
+      default: () => import("@/views/Category"),
+      header: () => import("@/components/CategoryHeader"),
       footer: Footer
     },
     meta: {
       title: "分类",
       isTabBar: true,
-      icon: "qr"
+      // icon: "label-o",
+      icon: "label"
     }
   },
   {
     path: "/cart",
     name: "cart",
     components: {
-      default: Cart,
+      default: () => import("@/views/Cart"),
+      header: () => import("@/components/CartHeader"),
       footer: Footer
     },
     meta: {
       title: "购物车",
       isTabBar: true,
-      icon: "shopping-cart-o"
+      // icon: "shopping-cart-o",
+      icon: "shopping-cart"
     }
   },
   {
     path: "/mine",
     name: "mine",
     components: {
-      default: Mime,
+      default: () => import("@/views/Mime"),
       footer: Footer
     },
     meta: {
       title: "我的",
       isTabBar: true,
-      icon: "user-o"
+      // icon: "user-o",
+      icon: "manager"
+    }
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("@/components/Login"),
+    meta: {
+      title: "登录",
+      isTabBar: false
     }
   }
 ];
