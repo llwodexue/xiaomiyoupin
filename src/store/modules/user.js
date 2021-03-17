@@ -9,8 +9,8 @@ const defaultState = {
 };
 const state = {
   token: Cookies.get("token"),
-  name: sessionStorage.getItem("name"),
-  avatar: sessionStorage.getItem("avatar")
+  name: localStorage.getItem("name"),
+  avatar: localStorage.getItem("avatar")
 };
 
 const mutations = {
@@ -20,17 +20,17 @@ const mutations = {
   },
   [TYPES.SET_NAME]: (state, name) => {
     state.name = name;
-    sessionStorage.setItem("name", name);
+    localStorage.setItem("name", name);
   },
   [TYPES.SET_AVATAR]: (state, avatar) => {
     state.avatar = avatar;
-    sessionStorage.setItem("avatar", avatar);
+    localStorage.setItem("avatar", avatar);
   },
   [TYPES.RESET_STATE]: state => {
     Object.assign(state, defaultState);
     Cookies.remove("token");
-    sessionStorage.removeItem("name");
-    sessionStorage.removeItem("avatar");
+    localStorage.removeItem("name");
+    localStorage.removeItem("avatar");
   }
 };
 

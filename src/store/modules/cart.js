@@ -31,7 +31,7 @@ const mutations = {
         check: true
       });
     }
-    // sessionStorage.setItem("cart", state.shop);
+    sessionStorage.setItem("cart", JSON.stringify(state.shop));
   }
 };
 

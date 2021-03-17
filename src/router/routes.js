@@ -89,7 +89,7 @@ export default [
     name: "logout",
     component: () => import("@/components/Logout"),
     meta: {
-      title: "登录",
+      title: "退出登录",
       isTabBar: false
     }
   },
