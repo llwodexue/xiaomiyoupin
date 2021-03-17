@@ -39,7 +39,7 @@ export default {
     .more {
       font-size: 0.2rem;
       color: #999999;
-      margin-right: 0.1rem;
+      margin-right: 0.3rem;
       padding-top: 0.1rem;
     }
   }

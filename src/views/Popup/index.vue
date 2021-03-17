@@ -1,20 +1,17 @@
 <template>
   <div class="popup">
     <input-search class="search"></input-search>
-    <history-hot></history-hot>
   </div>
 </template>
 
 <script>
 import InputSearch from "@/components/InputSearch";
-import HistoryHot from "./HistoryHot";
 export default {
   data() {
     return {};
   },
   components: {
     InputSearch,
-    HistoryHot,
   },
   methods: {},
 };

@@ -23,15 +23,6 @@ export default [
     }
   },
   {
-    path: "/popup",
-    name: "popup",
-    component: () => import("@/views/Popup"),
-    meta: {
-      title: "弹出层",
-      isTabBar: false
-    }
-  },
-  {
     path: "/category",
     name: "category",
     components: {
@@ -62,8 +53,8 @@ export default [
     }
   },
   {
-    path: "/mine",
-    name: "mine",
+    path: "/mime",
+    name: "mime",
     components: {
       default: () => import("@/views/Mime"),
       footer: Footer
@@ -76,11 +67,38 @@ export default [
     }
   },
   {
+    path: "/popup",
+    name: "popup",
+    component: () => import("@/views/Popup"),
+    meta: {
+      title: "弹出层",
+      isTabBar: false
+    }
+  },
+  {
     path: "/login",
     name: "login",
     component: () => import("@/components/Login"),
     meta: {
       title: "登录",
+      isTabBar: false
+    }
+  },
+  {
+    path: "/logout",
+    name: "logout",
+    component: () => import("@/components/Logout"),
+    meta: {
+      title: "登录",
+      isTabBar: false
+    }
+  },
+  {
+    path: "/item",
+    name: "item",
+    component: () => import("@/components/ShopItem"),
+    meta: {
+      title: "商品详情",
       isTabBar: false
     }
   }

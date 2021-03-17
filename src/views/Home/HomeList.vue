@@ -2,37 +2,44 @@
   <div class="product">
     <div class="product-item" v-for="(item, index) in product" :key="index">
       <div v-if="item.data.goods">
-        <div class="product-img">
-          <img :src="item.data.goods.img800s" alt="" />
-        </div>
-        <div class="product-info">
-          <p class="name" v-text="item.data.goods.name"></p>
-          <p class="summary van-ellipsis" v-text="item.data.goods.summary"></p>
-          <div class="price">
-            <span class="priceNow">{{
-              item.data.goods.priceMin | filterMoney
-            }}</span>
-            <span class="priceOld">{{
-              item.data.goods.marketPrice | filterMoney
-            }}</span>
+        <router-link
+          :to="{ name: 'item', query: { gid: item.data.goods.gid } }"
+        >
+          <div class="product-img">
+            <img :src="item.data.goods.img800s" alt="" />
           </div>
-        </div>
+          <div class="product-info">
+            <p class="name" v-text="item.data.goods.name"></p>
+            <p
+              class="summary van-ellipsis"
+              v-text="item.data.goods.summary"
+            ></p>
+            <div class="price">
+              <span class="priceNow">{{
+                item.data.goods.priceMin | filterMoney
+              }}</span>
+              <span class="priceOld">{{
+                item.data.goods.marketPrice | filterMoney
+              }}</span>
+            </div>
+          </div>
+        </router-link>
       </div>
 
       <div v-else>
-        <div class="product-img">
-          <img src="@/assets/img/default.png" alt="" />
-        </div>
-        <div class="product-info">
-          <p class="name">黑白调人体工学双腰拖护腰电脑椅</p>
-          <p class="summary van-ellipsis">
-            双腰托，科学护腰；翻转扶手，轻松收纳；透气网布，柔韧回弹
-          </p>
-          <div class="price">
-            <span class="priceNow">{{ 34900 | filterMoney }}</span>
-            <span class="priceOld">{{ 44900 | filterMoney }}</span>
+        <router-link :to="{ name: 'item', query: { gid: '107333' } }">
+          <div class="product-img">
+            <img src="@/assets/img/default.png" alt="" />
           </div>
-        </div>
+          <div class="product-info">
+            <p class="name">野蛮娃娃遥控跑车</p>
+            <p class="summary van-ellipsis">给聪明孩子的遥控跑车</p>
+            <div class="price">
+              <span class="priceNow">{{ 24900 | filterMoney }}</span>
+              <span class="priceOld">{{ 34900 | filterMoney }}</span>
+            </div>
+          </div>
+        </router-link>
       </div>
     </div>
 

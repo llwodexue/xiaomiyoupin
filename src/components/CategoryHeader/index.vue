@@ -2,7 +2,11 @@
   <div class="wrapper">
     <van-nav-bar title="分类">
       <template #right>
-        <van-icon name="search" size="18" />
+        <van-icon
+          name="search"
+          size="18"
+          @click="$router.push({ name: 'popup' })"
+        />
       </template>
     </van-nav-bar>
   </div>

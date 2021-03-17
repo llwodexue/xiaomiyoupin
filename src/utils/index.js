@@ -34,7 +34,7 @@ const win = (attr, val) => {
   document.body[attr] = val;
 };
 
-import md5 from "blueimp-md5";
+let md5 = require("blueimp-md5")
 const passTrans = pass => {
   return md5(pass)
     .substring(4)

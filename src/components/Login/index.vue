@@ -1,9 +1,17 @@
 <template>
   <div class="wrapper">
-    <div class="head">欢迎登录小米有品</div>
+    <div class="head">
+      <van-cell
+        class="back"
+        is-link
+        arrow-direction="left"
+        to="mime"
+      />欢迎登录小米有品
+    </div>
     <van-form @submit="onSubmit" class="form">
       <van-field
         v-model="username"
+        name="user"
         placeholder="邮箱/手机号码/小米ID"
         :rules="[{ required: true, message: '请填写用户名' }]"
       />
@@ -11,6 +19,7 @@
         v-model="password"
         type="password"
         placeholder="密码"
+        name="pass"
         right-icon="eye"
         :rules="[{ required: true, message: '请填写密码' }]"
       />
@@ -19,11 +28,14 @@
           >登录</van-button
         >
       </div>
+      <van-nav-bar title="账号：user" />
+      <van-nav-bar title="密码：123" />
     </van-form>
   </div>
 </template>
 
 <script>
+import { passTrans } from "@/utils";
 export default {
   name: "Login",
   data() {
@@ -34,7 +46,21 @@ export default {
   },
   methods: {
     onSubmit(values) {
-      console.log("submit", values);
+      values.pass = passTrans(values.pass);
+      this.$store.dispatch("user/login", values).then(() => {
+        let isLogin = this.$store.state.user.token;
+        if (isLogin) {
+          this.$notify({ type: "success", message: "登录成功" });
+          setTimeout(() => {
+            this.$router.go(-1);
+          }, 500);
+        } else {
+          this.$notify({
+            type: "danger",
+            message: "账号/密码输入错误，请重新输入",
+          });
+        }
+      });
     },
   },
 };
@@ -48,10 +74,20 @@ export default {
   padding: 1.2rem 0.92rem 0 0.92rem;
 
   .head {
+    display: flex;
     font-size: 0.48rem;
     text-align: center;
     color: #666;
     margin: 0.32rem 0;
+    .van-cell.back {
+      background: transparent;
+      border: none;
+      width: 0.8rem;
+      padding-top: 0;
+      &::after {
+        border: none;
+      }
+    }
   }
   .van-cell {
     border-bottom: 1px solid #ccc;

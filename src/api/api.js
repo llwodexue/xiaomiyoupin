@@ -1,5 +1,6 @@
 import axios from "./index";
 
+// 首页大部分数据
 const getHomepage = () => {
   return axios.post("/home/homepage/main/v1005?platform=m").then(res => {
     if (res.code == 0) {
@@ -10,6 +11,7 @@ const getHomepage = () => {
   });
 };
 
+// 分类列表数据
 const getHomeFeeds = (i = 0, id = "") => {
   return axios
     .post("/home/homepage/feeds", {
@@ -29,6 +31,7 @@ const getHomeFeeds = (i = 0, id = "") => {
     });
 };
 
+// 热点搜索数据
 const getHotWords = id => {
   return axios.post("/home/mtop/market/search/hotWords").then(res => {
     if (res.code == 0) {
@@ -39,6 +42,7 @@ const getHotWords = id => {
   });
 };
 
+// 分类列表
 const getCategoryList = () => {
   return axios.post("/home/mtop/market/cat/list", [{}, {}]).then(res => {
     if (res.code == 0) {
@@ -49,6 +53,7 @@ const getCategoryList = () => {
   });
 };
 
+// 分类列表右侧
 const getCategoryDetail = id => {
   return axios
     .post("/home/mtop/market/cat/detail", [{}, { catId: id }])
@@ -61,6 +66,27 @@ const getCategoryDetail = id => {
     });
 };
 
+// 商品详情
+const detail = id => {
+  return axios
+    .post("/home/api/gateway/detail", {
+      channel: "",
+      debug: false,
+      groupName: "details",
+      groupParams: [[id]],
+      methods: [],
+      version: "1.0.0"
+    })
+    .then(res => {
+      if (res.code == 0) {
+        return res.data;
+      } else {
+        return Promise.reject(res.message);
+      }
+    });
+};
+
+// 登录
 const login = option => {
   return axios.post("/xiaomi/login", option).then(res => {
     if (res.code == 0) {
@@ -70,6 +96,8 @@ const login = option => {
     }
   });
 };
+
+// 退出signout
 const logout = () => {
   return axios.post("/xiaomi/logout").then(res => {
     if (res.code == 0) {
@@ -85,6 +113,7 @@ export default {
   getHomeFeeds,
   getHotWords,
   getCategoryList,
+  detail,
   login,
   logout,
   getCategoryDetail

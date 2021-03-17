@@ -1,7 +1,6 @@
-import { RegExp } from "core-js";
 import Mock from "mockjs";
-import user_img from "./assets/img/user.png";
-import xiaomi_img from "./assets/img/xiaomi.jpg";
+import user_img from "@/assets/img/user.png";
+import xiaomi_img from "@/assets/img/xiaomi.jpg";
 
 function success(option) {
   return {
@@ -41,7 +40,7 @@ const login = options => {
   });
   if (res.length) {
     return success({
-      user: res[0].user,
+      name: res[0].user,
       token: res[0].token,
       avatar: res[0].avatar
     });

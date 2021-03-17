@@ -7,6 +7,15 @@
         <img :src="userInfo.icon" alt="" class="back" />
       </template>
     </van-cell>
+
+    <van-cell class="login userLogin" v-else :to="userMess.to">
+      <template #title>
+        <img :src="userMess.img" alt="" class="avatar" />
+        <span class="please">{{ userMess.name }}</span>
+        <img :src="userMess.icon" alt="" class="back" />
+      </template>
+    </van-cell>
+
     <van-cell title="我的订单" is-link class="order" to="home"></van-cell>
     <div class="focus">
       <div v-for="(item, i) in focusList" :key="i" class="focusList">
@@ -107,10 +116,18 @@ export default {
       ],
     };
   },
-  created() {},
   computed: {
     isLogin() {
       return this.$store.state.user.token;
+    },
+    userMess() {
+      return {
+        name: this.$store.state.user.name,
+        img: this.$store.state.user.avatar,
+        icon:
+          "https://m.xiaomiyoupin.com/youpin/static/m/res/images/icons/icon_arrow_right_darkgray.png",
+        to: "logout",
+      };
     },
   },
 };
@@ -128,6 +145,7 @@ export default {
       display: flex;
       align-items: center;
       .avatar {
+        border-radius: 50%;
         width: 1.2rem;
         height: 1.2rem;
       }
@@ -141,6 +159,16 @@ export default {
       .back {
         width: 0.4rem;
         height: 0.4rem;
+      }
+    }
+  }
+  .userLogin {
+    background: url("https://trade.m.xiaomiyoupin.com/youpin/static/m/res/images/common/bg_page_header.png")
+      no-repeat center center/cover;
+    .van-cell__title {
+      .please {
+        color: #333;
+        font-size: 0.34rem;
       }
     }
   }

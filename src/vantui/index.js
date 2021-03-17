@@ -15,7 +15,18 @@ import {
   Button,
   Form,
   NavBar,
-  Field
+  Field,
+  Notify,
+  GoodsAction,
+  GoodsActionButton,
+  GoodsActionIcon,
+  Sku,
+  Card,
+  SubmitBar,
+  Tag,
+  Checkbox,
+  Stepper,
+  Toast
 } from "vant";
 
 // 这里没有使用Popup（没有进行路由跳转）
@@ -35,3 +46,14 @@ Vue.use(Button);
 Vue.use(Form);
 Vue.use(NavBar);
 Vue.use(Field);
+Vue.use(Notify);
+Vue.use(GoodsAction);
+Vue.use(GoodsActionButton);
+Vue.use(GoodsActionIcon);
+Vue.use(Sku);
+Vue.use(Card);
+Vue.use(SubmitBar);
+Vue.use(Tag);
+Vue.use(Checkbox);
+Vue.use(Stepper);
+Vue.use(Toast);

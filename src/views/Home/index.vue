@@ -59,24 +59,25 @@ export default {
     await this.$axios.getHomepage().then((res) => {
       res.forEach((item) => {
         let key = item.module_key;
+        let data = item.data;
         switch (key) {
           case "declare_banner_new":
-            this.bannerList = item.data.items;
+            this.bannerList = data.items;
             break;
           case "kingkong_new":
-            this.kingkongList = item.data.items;
+            this.kingkongList = data.items;
             break;
           case "plaza_new":
-            this.plazaList = item.data.rows[0].items;
+            this.plazaList = data.rows[0].items;
             break;
           case "image_link_map":
-            this.hotspotList.push(item.data._hotspot);
+            this.hotspotList.push(data._hotspot);
             break;
           case "product_hot_new":
-            this.prodnewList = item.data;
+            this.prodnewList = data;
             break;
           case "slide_flow":
-            this.tabConfigList = item.data.items;
+            this.tabConfigList = data.items;
             break;
         }
       });

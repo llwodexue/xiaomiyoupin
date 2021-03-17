@@ -2,7 +2,7 @@
   <div class="wrapper">
     <van-cell class="title">
       <template #title>
-        <img :src="src" class="back" />
+        <img :src="src" class="back" @click="toHome" />
         <span>购物车</span>
       </template>
     </van-cell>
@@ -17,6 +17,11 @@ export default {
       src:
         "https://trade.m.xiaomiyoupin.com/youpin/static/m/res/images/icons/icon_arrow_left_white2.png",
     };
+  },
+  methods: {
+    toHome() {
+      this.$router.push({ name: "home" });
+    },
   },
 };
 </script>
