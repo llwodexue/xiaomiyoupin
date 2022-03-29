@@ -26,7 +26,8 @@ import {
   Tag,
   Checkbox,
   Stepper,
-  Toast
+  Toast,
+  Dialog
 } from "vant";
 
 // 这里没有使用Popup（没有进行路由跳转）
@@ -57,3 +58,4 @@ Vue.use(Tag);
 Vue.use(Checkbox);
 Vue.use(Stepper);
 Vue.use(Toast);
+Vue.use(Dialog);

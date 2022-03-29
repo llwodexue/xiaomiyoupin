@@ -13,6 +13,14 @@
 <script>
 export default {
   name: "App",
+  created() {
+    if (!/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+      this.$dialog.alert({
+        title: "友情提示",
+        message: "请切换至手机端使用"
+      });
+    }
+  }
 };
 </script>
 <style lang="less">
@@ -46,4 +54,3 @@ body {
   }
 }
 </style>
-

@@ -19,18 +19,22 @@ export default {
   data() {
     return {
       navs: [],
-      active: 0,
+      active: 0
     };
   },
   created() {
-    this.navs = routes.filter((item) => {
+    this.navs = routes.filter(item => {
       if (item.meta) return item.meta.isTabBar;
     });
-  },
+  }
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
+/deep/ .van-tabbar--fixed {
+  position: relative !important;
+}
 .footer {
+  height: 50px;
   .tabbar {
     display: flex;
   }
