@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.png"><title>小米有品</title><body><div id="app"></div><script>// iPhone6/7/8 50px=1rem
+    ;(function() {
+      let app = document.getElementById("app")
+      function computed() {
+        let HTML = document.documentElement,
+          winW = HTML.clientWidth,
+          designW = 750
+
+        if (winW >= designW) {
+          HTML.style.fontSize = '100px'
+          return
+        }
+        HTML.style.fontSize = (winW / designW) * 100 + 'px'
+      }
+      computed()
+      window.addEventListener('resize', computed)
+    })()</script><link href="/css/chunk-0e9f29e3.0be206ad.css" rel="prefetch"><link href="/css/chunk-13c6843e.8fafec49.css" rel="prefetch"><link href="/css/chunk-223e44f0.32637683.css" rel="prefetch"><link href="/css/chunk-484e20e6.01d0e514.css" rel="prefetch"><link href="/css/chunk-57643e36.248ef09f.css" rel="prefetch"><link href="/css/chunk-72b3bafc.976006f8.css" rel="prefetch"><link href="/css/chunk-743870ea.a777ce10.css" rel="prefetch"><link href="/css/chunk-c7dae072.39d8c336.css" rel="prefetch"><link href="/css/chunk-db8aaeb8.d56d3507.css" rel="prefetch"><link href="/js/chunk-0e9f29e3.74c6273d.js" rel="prefetch"><link href="/js/chunk-13c6843e.ebe0dddc.js" rel="prefetch"><link href="/js/chunk-223e44f0.16972f81.js" rel="prefetch"><link href="/js/chunk-484e20e6.c036e4cc.js" rel="prefetch"><link href="/js/chunk-57643e36.7342e3a8.js" rel="prefetch"><link href="/js/chunk-72b3bafc.1e10183c.js" rel="prefetch"><link href="/js/chunk-743870ea.4ae477e5.js" rel="prefetch"><link href="/js/chunk-c7dae072.c406c0b7.js" rel="prefetch"><link href="/js/chunk-db8aaeb8.42557e91.js" rel="prefetch"><link href="/css/app.25fa4dd1.css" rel="preload" as="style"><link href="/css/chunk-vendors.15aff938.css" rel="preload" as="style"><link href="/js/app.5727792c.js" rel="preload" as="script"><link href="/js/chunk-vendors.4e30543a.js" rel="preload" as="script"><link href="/css/chunk-vendors.15aff938.css" rel="stylesheet"><link href="/css/app.25fa4dd1.css" rel="stylesheet"></body></head><script src="/js/chunk-vendors.4e30543a.js"></script><script src="/js/app.5727792c.js"></script></html>
